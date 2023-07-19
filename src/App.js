@@ -1,23 +1,16 @@
-// import logo from './logo.svg';
+import { useState } from 'react';
+import List from './components/List';
 import './App.css';
-import Button from './components/Button';
-import Input from './components/Input';
-import Link from './components/Link';
 
-function App() {
+function App()  {
+    const [isShow, setIsShow] = useState(true);
+
   return (
-    <div className="App">
-      
-          <h4>Welcome</h4>
-          <Input/>
-          <Button text='Cancel' />
-          <Button text='OK' />
-          <Link text='English'/>
-          <Link text='Ukrainian'/>
-
-     </div>
-  );
+    <div>
+        {isShow && <List />}
+        <button onClick={()=> setIsShow(!isShow)}>Toggle</button>      
+    </div>
+  )
 }
 
-export default App;
-
+export default App
